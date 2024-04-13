@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import BookList from "./BookList.jsx"
 import BookDetails from './BookDetails.jsx';
@@ -13,6 +11,11 @@ const App = () => {
   const [priceFilter, setPriceFilter] = useState("");
   const [sort, setSort] = useState("asc");
   const [error, setError] = useState(null);
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   useEffect(() => {
     fetch('https://d1krvzwx5oquy1.cloudfront.net/books.json')
@@ -53,8 +56,7 @@ const App = () => {
   }
 
   return (
-    <>
-    
+    <div className={theme}>
       <div className='filter'>
         <label>Minimum Rating: </label>
         <input type="number" min="0" max="5" value={filter} onChange={e => setFilter(e.target.value)} />
@@ -65,15 +67,15 @@ const App = () => {
           <option value="asc">Low to High</option>
           <option value="desc">High to Low</option>
         </select>
-        <button onClick={handleSort}>Sort</button>
+        <button onClick={handleSort}>Sort</button> &nbsp;
+        <button onClick={toggleTheme}> {theme === 'light' ? 'Dark Theme' : 'Light Theme'}</button>
       </div>
       <div className="app">
         <BookList onBookSelect={setSelectedBook} books={books} />
         <BookDetails book={selectedBook} />
       </div>
-    </>
+    </div>
   );
 };
 
 export default App;
-
