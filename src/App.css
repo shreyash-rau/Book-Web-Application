@@ -1,20 +1,59 @@
-
-
 body {
   background-color: #c6ebd2;
   font-family: Arial, sans-serif;
   overflow: hidden;
 }
 
+/* code for dark and light themes */
+body.light {
+  background-color: #c6ebd2;
+  color: cyan;
+}
+
+body.dark {
+  background-color: #333;
+  color: cyan;
+}
+
+.light .filter,
+.light .books,
+.light .book-details,
+.light .app,
+.light .book-list,
+.details {
+  background-color: #f4f4f4;
+  color: #333; /* Add this line */
+}
+
+.dark .filter,
+.dark .book-details,
+.dark .app,
+.dark .books,
+.dark .book-list,
+.details {
+  background-color: #555;
+  color: cyan; /* Add this line */
+}
+.light .filter button,
+.light .filter label {
+  background-color: white; /* Light theme button color */
+  color: black;
+}
+
+.dark .filter button,
+.dark .filter label {
+  background-color: #555; /* Dark theme button color */
+  color: cyan;
+}
 .app {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 10px 50px 10px;
   overflow-y: none;
-
+  border-radius: 20px;
+  /* margin-bottom: 20%; */
 }
-
 
 .filter {
   margin: 10px 10% 10px;
@@ -26,13 +65,39 @@ body {
   padding: 10px;
   margin-bottom: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  /* for smooth transation */
+  transition: all 0.3s ease;
+}
+
+.filter:hover {
+  transform: scale(1.02);
+  /* Slight zoom on hover */
 }
 
 .filter label {
   margin-left: 30px;
   font-weight: bold;
+  color: #333;
 }
-.filter input, .filter select{
+
+input {
+  font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+}
+
+/* On focus effect */
+input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px #007BFF;
+}
+
+
+
+.filter input,
+.filter select {
   border: none;
   border-radius: 20px;
   /* width: 50px; */
@@ -41,20 +106,24 @@ body {
   border: none;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .filter button {
   width: 10%;
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
-  background-color: #007BFF;
+  background-color: #0374ec;
   color: white;
   cursor: pointer;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .filter button:hover {
   background-color: #0056b3;
   font-weight: bold;
+  /* for Slight zoom on hover */
+  transform: scale(1.1);
 }
 
 .book-list {
@@ -64,13 +133,22 @@ body {
   width: 60%;
   overflow-y: auto;
   height: 100vh;
-  padding: 20px;
+  /* padding: 20px; */
   box-sizing: border-box;
+  border-radius: 20px;
+  margin: 20px;
 }
-.books{
+
+.books {
   border-radius: 20px;
   align-items: center;
   text-align: center;
+  transition: all 0.3s ease;
+}
+
+.books:hover {
+  transform: scale(1.02);
+  /* Slight zoom on hover */
 }
 
 .details {
@@ -84,37 +162,44 @@ body {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
+
 .book-details {
   width: 35%;
   height: 100%;
   padding: 1px 25px;
-  padding-top: ;
   /* box-sizing: border-box; */
   border-left: 1px solid #ccc;
   background-color: #f0dfdf;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   text-align: center;
   color: #333;
   border-radius: 30px;
-  overflow-y: auto;
-  height: 100vh;
+  /* overflow-y: auto;
+  height: 100vh; */
+  margin: 1% 5px;
+  transition: all 0.5s ease;
 }
 
-.book-details img {
+.book-details img:hover {
   width: 50%;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  transition: all 0.9s ease;
 }
+
 .book-details h2 {
   font-size: 1.5em;
   margin-bottom: 10px;
 }
+
 .book-details p {
   margin-bottom: 10px;
 }
+
 .book-details button {
   padding: 10px;
   margin: 5px;
@@ -123,8 +208,8 @@ body {
   background-color: #007BFF;
   color: white;
   cursor: pointer;
-  width: 50%; 
-  }
+  width: 50%;
+}
 
 .book-details button:hover {
   background-color: #0056b3;
@@ -154,40 +239,47 @@ input[type="number"] {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  border: none;
+  border-bottom: 3px solid red;
 }
 
 
 @media screen and (max-width:578px) {
-  .app{
-      margin-left: 5.2rem;
-      height: 400px;
-      width: 350px;
+  .app {
+    margin-left: 5.2rem;
+    height: 400px;
+    width: 350px;
   }
 }
+
 @media screen and (max-width:503px) {
-  .app{
-      margin-left: 4.2rem;
+  .app {
+    margin-left: 4.2rem;
   }
 }
+
 @media screen and (max-width:469px) {
-  .app{
-      margin-left: 3.2rem;
+  .app {
+    margin-left: 3.2rem;
   }
 }
+
 @media screen and (max-width:437px) {
-  .app{
-      margin-left: 2.2rem;
+  .app {
+    margin-left: 2.2rem;
   }
 }
+
 @media screen and (max-width:415px) {
-  .app{
-      margin-left: 1.2rem;
+  .app {
+    margin-left: 1.2rem;
   }
 }
+
 @media screen and (max-width:390px) {
-  .app{
-      margin-left: 1.2rem;
-      height: 420px;
-      width: 330px;
+  .app {
+    margin-left: 1.2rem;
+    height: 420px;
+    width: 330px;
   }
 }
