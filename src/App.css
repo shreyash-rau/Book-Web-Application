@@ -3,17 +3,22 @@
 body {
   background-color: #c6ebd2;
   font-family: Arial, sans-serif;
+  overflow: hidden;
 }
-
 
 .app {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 10px 50px 10px;
+  overflow-y: none;
+
 }
-/* App.css */
+
 
 .filter {
+  margin: 10px 10% 10px;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,15 +29,32 @@ body {
 }
 
 .filter label {
-  margin-right: 30px;
+  margin-left: 30px;
   font-weight: bold;
 }
-.filter input {
-  margin-top: 20px;
-  width: 40%;
+.filter input, .filter select{
+  border: none;
+  border-radius: 20px;
+  /* width: 50px; */
+  margin: 10px 20px 10px;
+  padding: 5px;
+  border: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.filter button {
+  width: 10%;
+  padding: 5px 10px;
   border: none;
   border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter button:hover {
+  background-color: #0056b3;
+  font-weight: bold;
 }
 
 .book-list {
@@ -45,12 +67,30 @@ body {
   padding: 20px;
   box-sizing: border-box;
 }
+.books{
+  border-radius: 20px;
+  align-items: center;
+  text-align: center;
+}
 
+.details {
+  height: 100%;
+  font-size: larger;
+  font-weight: bold;
+  text-align: center;
+  margin: 10% 10% 0%;
+  color: #333;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
 .book-details {
   width: 35%;
   height: 100%;
-  padding: 50px;
-  box-sizing: border-box;
+  padding: 1px 25px;
+  padding-top: ;
+  /* box-sizing: border-box; */
   border-left: 1px solid #ccc;
   background-color: #f0dfdf;
   display: flex;
@@ -59,32 +99,58 @@ body {
   justify-content: center;
   text-align: center;
   color: #333;
+  border-radius: 30px;
+  overflow-y: auto;
+  height: 100vh;
 }
 
 .book-details img {
   width: 50%;
   margin-bottom: 20px;
 }
+.book-details h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.book-details p {
+  margin-bottom: 10px;
+}
+.book-details button {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  width: 50%; 
+  }
+
+.book-details button:hover {
+  background-color: #0056b3;
+  font-weight: 900;
+}
 
 .book-list div {
   width: 45%;
   border: 1px solid #ccc;
   margin-bottom: 20px;
-  padding: 10px;
+  padding: 30px;
   box-sizing: border-box;
   background-color: #fff;
+  margin-top: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .book-list img {
-  width: 100%;
+  width: 50%;
   height: auto;
   border-radius: 5px;
 }
 
 input[type="number"] {
   width: 100px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
